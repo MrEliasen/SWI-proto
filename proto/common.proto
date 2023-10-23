@@ -28,6 +28,12 @@ enum ItemType {
 	ITEM_TYPE_MYSTERY = 8;
 }
 
+enum Gender {
+    RANDOM = 0;
+    MALE = 1;
+    FEMALE = 2;
+}
+
 message Coordinate {
     int32 north = 1;
     int32 east= 2;
