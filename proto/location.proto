@@ -1,0 +1,43 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+import "common.proto";
+
+enum Direction {
+	DIRECTION_NORTH = 0;
+	DIRECTION_SOUTH = 1;
+	DIRECTION_EAST = 2;
+	DIRECTION_WEST = 3;
+	DIRECTION_UNKNOWN = 4;
+}
+
+enum MoveEventType {
+	MOVE_EVENT_ARRIVE = 0;
+	MOVE_EVENT_LEAVE  = 1;
+}
+
+message Location {
+	string city_name = 1;
+    bool clear = 2;
+    string description = 3;
+    Coordinate coordinates = 4;
+    repeated Building buildings= 5;
+    repeated Player players = 6;
+    repeated NPC npcs = 7;
+    repeated Item items = 8;
+}
+
+message PlayerMoveEvent {
+	MoveEventType type = 1;
+	Player player = 2;
+    Direction direction = 3;
+    bool samecity = 4;
+    bool fled = 5;
+}
+
+message NPCMoveEvent {
+	MoveEventType type = 1;
+    NPC npc = 2;
+    Direction direction = 3;
+}

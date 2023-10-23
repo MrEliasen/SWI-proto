@@ -1,0 +1,11 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+enum SystemType {
+    GAME_READY = 0;
+}
+
+message System {
+    SystemType type = 1;
+}

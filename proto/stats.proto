@@ -1,0 +1,21 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+message Skill {
+    string key = 1;
+    float value = 2;
+}
+
+message Stats {
+   string name = 2; 
+   string rank = 3; 
+   int64 reputation = 4; 
+   int64 next_rank = 5; 
+   uint32 cash = 6; 
+   uint32 bank = 7; 
+   string hometown = 8; 
+   int32 health = 9; 
+   uint32 max_health = 10;
+   repeated Skill skills = 11;
+}

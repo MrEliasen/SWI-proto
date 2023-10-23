@@ -1,0 +1,14 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+import "common.proto";
+
+message GPS {
+    bool enabled = 1;
+    Coordinate location = 2;
+    repeated Coordinate pois = 3;
+    int32 width = 4;
+    int32 height = 5;
+    string name = 6;
+}

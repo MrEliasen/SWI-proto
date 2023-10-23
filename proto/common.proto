@@ -1,0 +1,73 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+enum NetworkType {
+    NETWORK_TYPE_SYSTEM = 0;
+    NETWORK_TYPE_CHAT = 1;
+    NETWORK_TYPE_STATS = 2;
+}
+
+enum ResponseStatus {
+	RESPONSE_STATUS_NORMAL = 0;
+	RESPONSE_STATUS_ERROR = 1;
+	RESPONSE_STATUS_SUCCESS = 2;
+	RESPONSE_STATUS_INFO = 3;
+	RESPONSE_STATUS_WARN = 4;
+}
+
+enum ItemType {
+	ITEM_TYPE_TRASH = 0;
+	ITEM_TYPE_GUN = 1;
+	ITEM_TYPE_MELEE = 2;
+	ITEM_TYPE_ARMOR = 3;
+	ITEM_TYPE_AMMO = 4;
+	ITEM_TYPE_SMART_PHONE = 5;
+	ITEM_TYPE_DRUG = 6;
+	ITEM_TYPE_LABEL = 7;
+	ITEM_TYPE_MYSTERY = 8;
+}
+
+message Coordinate {
+    int32 north = 1;
+    int32 east= 2;
+    string city = 3;
+    string poi = 4;
+    int32 poitype = 5;
+}
+
+message Player {
+    uint64 id = 1;
+    string name = 2;
+    string gang_tag = 3;
+    string rank = 4;
+    string hometown = 5;
+}
+
+message Building {
+    string name = 1;
+    string description = 2;
+    repeated string commands = 3;
+}
+
+message NPC {
+    string name = 1;
+    string rank = 2;
+    int32 health = 3;
+}
+
+message Item {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    float condition = 4;
+    ItemType type = 5;
+    int32 amount = 6;
+    uint32 price = 7;
+    uint32 damage = 8;
+    uint32 armor_guns = 9;
+    uint32 armor_melee = 10;
+    bool equipped = 11;
+    bool is_gear = 12;
+    bool has_use_effect = 13;
+}

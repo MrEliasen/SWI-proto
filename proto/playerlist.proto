@@ -1,0 +1,16 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+enum PlayerEvent {
+    EVENT_TYPE_PLAYER_LEAVE = 0;
+	EVENT_TYPE_PLAYER_JOIN = 1;
+}
+
+message PlayerList {
+    PlayerEvent type = 1;
+    string id = 2;
+    string name = 3;
+    string hometown = 4;
+    string gang_tag = 5;
+}

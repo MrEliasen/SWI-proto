@@ -1,0 +1,13 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+enum NewsType {
+    CHAT_TYPE_GENERIC = 0;
+	CHAT_TYPE_RESTOCK = 1;
+}
+
+message NewsFlash {
+    NewsType type = 1;
+    string msg = 2;
+} 

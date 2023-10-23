@@ -1,0 +1,9 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+import "common.proto";
+
+message Inventory {
+    repeated Item items = 1;
+}

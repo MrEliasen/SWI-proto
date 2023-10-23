@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "generate": "npm run gen:go && npm run gen:ts",
+        "gen:go": "protoc --go_out=./go/ -I=proto proto/*.proto",
+        "gen:ts": "npx buf generate proto"
+    },
+    "dependencies": {
+        "@bufbuild/buf": "^1.27.1",
+        "@bufbuild/protobuf": "^1.3.3",
+        "@bufbuild/protoc-gen-es": "^1.3.3"
+    }
+}

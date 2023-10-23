@@ -1,0 +1,18 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+import "common.proto";
+
+enum ChatType {
+	CHAT_TYPE_GLOBAL = 0;
+	CHAT_TYPE_LOCAL = 1;
+	CHAT_TYPE_PRIVATE = 2;
+}
+
+message Chat {
+    ChatType type = 1;
+    string msg = 2;
+    Player player = 3;
+} 
+

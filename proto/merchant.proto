@@ -1,0 +1,44 @@
+syntax="proto3";
+package responses;
+option go_package = "./internal/responses;responses";
+
+import "common.proto";
+
+enum MerchantType { 
+    MERCHANT_PAWN_SHOP = 0;
+	MERCHANT_DRUG_DEALER = 1;
+	MERCHANT_DRUGGIE = 2;
+	MERCHANT_ARMS_DEALER = 3;
+}
+
+message MerchantItem {
+    int32 index = 1;
+    string name = 2;
+    string description = 3;
+    float condition = 4;
+    uint32 price = 5;
+    string quality= 6;
+    bool canbuy = 7;
+    int64 rep= 8;
+    bool cansell = 9;
+    int32 quantity = 10;
+    float demand = 11;
+}
+
+message MerchantItemGroup {
+    repeated MerchantItem items= 1;
+}
+
+message MerchantInventory {
+    string merchant_id = 1;
+    string merchant_name = 2;
+    MerchantType merchant_type = 3;
+    bool open = 4;
+    map<uint32, MerchantItemGroup> items = 5;
+    repeated MerchantItem player_items = 6;
+}
+
+message MerchantMessage {
+    ResponseStatus status= 1;
+    string message = 2;
+}
