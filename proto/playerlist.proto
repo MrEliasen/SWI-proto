@@ -2,15 +2,18 @@ syntax="proto3";
 package responses;
 option go_package = "./internal/responses;responses";
 
+import "google/protobuf/any.proto";
+
 enum PlayerEvent {
     EVENT_TYPE_PLAYER_LEAVE = 0;
 	EVENT_TYPE_PLAYER_JOIN = 1;
 }
 
 message PlayerList {
-    PlayerEvent type = 1;
-    string id = 2;
-    string name = 3;
-    string hometown = 4;
-    string gang_tag = 5;
+    google.protobuf.Any any_field = 1;
+    PlayerEvent type = 2;
+    string id = 3;
+    string name = 4;
+    string hometown = 5;
+    string gang_tag = 6;
 }

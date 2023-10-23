@@ -2,6 +2,7 @@ syntax="proto3";
 package responses;
 option go_package = "./internal/responses;responses";
 
+import "google/protobuf/any.proto";
 import "common.proto";
 
 enum ChatType {
@@ -11,8 +12,9 @@ enum ChatType {
 }
 
 message Chat {
-    ChatType type = 1;
-    string msg = 2;
-    Player player = 3;
+    google.protobuf.Any any_field = 1;
+    ChatType type = 2;
+    string msg = 3;
+    Player player = 4;
 } 
 

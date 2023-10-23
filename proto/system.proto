@@ -2,10 +2,13 @@ syntax="proto3";
 package responses;
 option go_package = "./internal/responses;responses";
 
+import "google/protobuf/any.proto";
+
 enum SystemType {
     GAME_READY = 0;
 }
 
 message System {
-    SystemType type = 1;
+    google.protobuf.Any any_field = 1;
+    SystemType type = 2;
 }

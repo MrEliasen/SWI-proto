@@ -2,8 +2,10 @@ syntax="proto3";
 package responses;
 option go_package = "./internal/responses;responses";
 
+import "google/protobuf/any.proto";
 import "common.proto";
 
 message Inventory {
-    repeated Item items = 1;
+    google.protobuf.Any any_field = 1;
+    repeated Item items = 2;
 }

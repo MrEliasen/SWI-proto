@@ -2,12 +2,14 @@ syntax="proto3";
 package responses;
 option go_package = "./internal/responses;responses";
 
+import "google/protobuf/any.proto";
 import "common.proto";
 
 message Generic {
-    ResponseStatus status = 1;
-    uint32 alignment = 2; 
-    repeated string messages = 3;
-    string command = 4;
-    bool ascii = 5;
+    google.protobuf.Any any_field = 1;
+    ResponseStatus status = 2;
+    uint32 alignment = 3; 
+    repeated string messages = 4;
+    string command = 5;
+    bool ascii = 6;
 }

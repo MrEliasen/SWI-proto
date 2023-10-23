@@ -2,12 +2,15 @@ syntax="proto3";
 package responses;
 option go_package = "./internal/responses;responses";
 
+import "google/protobuf/any.proto";
+
 message Skill {
     string key = 1;
     float value = 2;
 }
 
 message Stats {
+   google.protobuf.Any any_field = 1;
    string name = 2; 
    string rank = 3; 
    int64 reputation = 4; 

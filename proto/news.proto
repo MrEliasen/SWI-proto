@@ -2,12 +2,15 @@ syntax="proto3";
 package responses;
 option go_package = "./internal/responses;responses";
 
+import "google/protobuf/any.proto";
+
 enum NewsType {
     CHAT_TYPE_GENERIC = 0;
 	CHAT_TYPE_RESTOCK = 1;
 }
 
 message NewsFlash {
-    NewsType type = 1;
-    string msg = 2;
+    google.protobuf.Any any_field = 1;
+    NewsType type = 2;
+    string msg = 3;
 } 
