@@ -1,7 +1,7 @@
 {
     "scripts": {
         "generate": "npm run gen:go && npm run gen:ts",
-        "gen:go": "protoc --go_out=./go/ -I=proto proto/*.proto",
+        "gen:go": "mkdir -p ./go && protoc --go_out=./go/ -I=proto proto/*.proto",
         "gen:ts": "npx buf generate proto"
     },
     "dependencies": {
